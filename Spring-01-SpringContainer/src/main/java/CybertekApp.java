@@ -8,10 +8,10 @@ public class CybertekApp {
 
         //since we are using xml file we use ClassPathXmlApplicationContext and give the path
 
-        //Spring Bean
+        //***Spring Bean
         //BeanFactory container = new ClassPathXmlApplicationContext("config.xml");
 
-        //Spring ApplicationContext
+        //***Spring ApplicationContext
        ApplicationContext container = new ClassPathXmlApplicationContext("config.xml");
 
        //don't need to cast, returning mentor type
