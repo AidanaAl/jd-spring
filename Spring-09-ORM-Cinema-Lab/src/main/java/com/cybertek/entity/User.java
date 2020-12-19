@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -16,16 +13,16 @@ import javax.persistence.Table;
 @Table(name = "user_account")
 public class User extends BaseEntity{
 
-    private String eamil;
+    private String email;
     private String password;
     private String username;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "account_details_id")
     private Account account;
 
-    public User(String eamil, String password, String username) {
-        this.eamil = eamil;
+    public User(String email, String password, String username) {
+        this.email = email;
         this.password = password;
         this.username = username;
     }
